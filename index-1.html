@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hydraulic and industrial components including control valves, cylinders, hydraulic motors, couplings, filters and power packs.">
+  <title>Your Company | Hydraulic & Industrial Solutions</title>
+  <style>
+    :root {
+      --navy: #101c2c;
+      --navy2: #182b42;
+      --gold: #e9a23b;
+      --ink: #172334;
+      --muted: #617084;
+      --paper: #f4f6f8;
+      --white: #fff;
+      --line: #e2e7ed;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: auto; }
+    header { background: var(--navy); color: white; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #2b3a4e; }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--gold); color: var(--navy); font-size: 24px; font-weight: 900; flex-shrink: 0; }
+    .brand-name { font-weight: 800; letter-spacing: .04em; line-height: 1.2; }
+    .brand-tag { color: #c3cfdd; font-size: 11px; letter-spacing: .12em; margin-top: 4px; }
+    nav { display: flex; gap: 22px; align-items: center; font-size: 14px; color: #e2e8f0; }
+    nav a:hover { color: var(--gold); }
+    .nav-cta, .button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 17px; border-radius: 10px; background: var(--gold); color: var(--navy); font-weight: 800; border: 0; cursor: pointer; }
+    .hero { background: radial-gradient(circle at 85% 20%, #2c4662 0, transparent 34%), linear-gradient(125deg, var(--navy), var(--navy2)); color: white; padding: 82px 0 76px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 46px; }
+    .eyebrow { color: var(--gold); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+    h1 { font-size: clamp(38px, 5.3vw, 64px); line-height: 1.08; letter-spacing: -.04em; margin: 16px 0 20px; max-width: 700px; }
+    .hero p { color: #d2dce7; max-width: 610px; font-size: 17px; margin: 0 0 28px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .button-outline { border: 1px solid #73849a; color: white; background: transparent; }
+    .hero-panel { border: 1px solid #43546a; border-radius: 24px; padding: 26px; background: #ffffff0a; }
+    .panel-symbol { font-size: 52px; color: var(--gold); margin-bottom: 10px; }
+    .hero-panel h2 { font-size: 22px; margin: 0 0 8px; }
+    .hero-panel p { font-size: 14px; margin: 0; }
+    .mini-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 24px; }
+    .mini-stat { border-top: 1px solid #43546a; padding-top: 12px; }
+    .mini-stat strong { display: block; color: var(--gold); font-size: 18px; }
+    .mini-stat span { color: #c3cfdd; font-size: 11px; }
+    section { padding: 72px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-head h2 { margin: 7px 0 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.15; }
+    .section-head p { max-width: 460px; color: var(--muted); margin: 0; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .filter { border: 1px solid var(--line); border-radius: 999px; background: white; color: var(--muted); padding: 8px 14px; cursor: pointer; font-size: 13px; }
+    .filter.active, .filter:hover { background: var(--navy); color: white; border-color: var(--navy); }
+    .products { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+    .product { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 21px; min-height: 190px; display: flex; flex-direction: column; transition: transform .18s, box-shadow .18s; }
+    .product:hover { transform: translateY(-3px); box-shadow: 0 12px 30px #17233412; }
+    .product-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 13px; background: #fff3df; color: #9b6113; font-size: 24px; margin-bottom: 17px; }
+    .product h3 { font-size: 16px; line-height: 1.3; margin: 0 0 8px; }
+    .product p { color: var(--muted); font-size: 13px; margin: 0 0 16px; flex: 1; }
+    .product a { color: #996014; font-size: 13px; font-weight: 800; }
+    .empty { display: none; color: var(--muted); padding: 24px; }
+    .about { background: white; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about h2 { font-size: clamp(29px, 3vw, 40px); line-height: 1.15; margin: 10px 0 18px; }
+    .about p { color: var(--muted); }
+    .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+    .benefit { padding: 15px; background: var(--paper); border-radius: 12px; font-weight: 700; font-size: 14px; }
+    .benefit span { color: #b7791f; margin-right: 8px; }
+    .about-card { background: var(--navy); color: white; border-radius: 24px; padding: 30px; }
+    .about-card .big { font-size: 44px; margin-bottom: 6px; }
+    .about-card h3 { margin: 0 0 10px; font-size: 23px; }
+    .about-card p { color: #c8d3e0; }
+    .contact { background: #eaf0f5; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 35px; }
+    .contact h2 { font-size: clamp(29px, 3vw, 40px); line-height: 1.15; margin: 10px 0 15px; }
+    .contact-copy { color: var(--muted); }
+    .contact-box { background: white; border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+    .contact-row { padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .contact-row:last-child { border-bottom: 0; }
+    .contact-row strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    .contact-row span { display: block; margin-top: 4px; font-weight: 700; overflow-wrap: anywhere; }
+    footer { background: var(--navy); color: #c3cfdd; padding: 25px 0; font-size: 13px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .note { font-size: 12px; color: var(--muted); margin-top: 20px; }
+    @media (max-width: 900px) { .products { grid-template-columns: repeat(3,minmax(0,1fr)); } .hero-grid { grid-template-columns: 1fr .75fr; gap: 24px; } nav { gap: 12px; } }
+    @media (max-width: 680px) {
+      .nav { padding: 12px 0; min-height: 70px; flex-wrap: wrap; }
+      nav { order: 3; width: 100%; justify-content: space-between; font-size: 13px; padding-bottom: 5px; }
+      .nav-cta { padding: 10px 12px; font-size: 13px; }
+      .hero { padding: 58px 0; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-panel { display: none; }
+      section { padding: 54px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+      .product { padding: 15px; min-height: 185px; }
+      .product h3 { font-size: 14px; }
+      .benefits { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 370px) { .products { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- CUSTOMIZE: replace "YOUR COMPANY" and the contact placeholders below. -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Home">
+        <span class="brand-mark">H</span>
+        <span><span class="brand-name">YOUR COMPANY</span><span class="brand-tag" style="display:block">HYDRAULIC & INDUSTRIAL SOLUTIONS</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Request a Quote ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Hydraulic components • Industrial supply</div>
+          <h1>Reliable Components. <span style="color:var(--gold)">Powerful Performance.</span></h1>
+          <p>Your sourcing partner for hydraulic and industrial components. Explore our product range and contact us for availability, specifications and quotations.</p>
+          <div class="hero-actions">
+            <a class="button" href="#products">Explore Products ↓</a>
+            <a class="button button-outline" href="#contact">Contact Us</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <div class="panel-symbol">⚙</div>
+          <h2>Hydraulic & Industrial Supply</h2>
+          <p>A broad range of components for hydraulic systems, machinery and industrial applications.</p>
+          <div class="mini-stats">
+            <div class="mini-stat"><strong>16+</strong><span>Product types</span></div>
+            <div class="mini-stat"><strong>B2B</strong><span>Business supply</span></div>
+            <div class="mini-stat"><strong>RFQ</strong><span>Quote requests</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Product catalogue</div><h2>Our Products</h2></div>
+          <p>Browse our product categories. Contact us with your required model, size or specifications for a quotation.</p>
+        </div>
+        <div class="filters" id="filters" aria-label="Filter products">
+          <button class="filter active" data-filter="all">All Products</button>
+          <button class="filter" data-filter="valves">Valves</button>
+          <button class="filter" data-filter="hydraulics">Hydraulic Components</button>
+          <button class="filter" data-filter="power">Power & Drive</button>
+          <button class="filter" data-filter="other">Other Components</button>
+        </div>
+        <div class="products" id="product-grid">
+          <article class="product" data-category="other"><div class="product-icon">◉</div><h3>Hydraulic Air Breather</h3><p>Air breathers for hydraulic reservoir applications.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="valves"><div class="product-icon">☷</div><h3>Mobile Control Valve</h3><p>Control valve options for mobile hydraulic systems.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="hydraulics"><div class="product-icon">↕</div><h3>Hydraulic Cylinders</h3><p>Cylinders for hydraulic equipment and machinery.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="power"><div class="product-icon">⚙</div><h3>Gear Coupling</h3><p>Coupling solutions for mechanical power transmission.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="valves"><div class="product-icon">◈</div><h3>Pressure Relief Valve</h3><p>Pressure control components for hydraulic circuits.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="other"><div class="product-icon">▤</div><h3>Suction Strainer</h3><p>Filtration components for fluid intake systems.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="other"><div class="product-icon">◴</div><h3>Pressure Gauge</h3><p>Pressure indication instruments for system monitoring.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="power"><div class="product-icon">▱</div><h3>Bell Housing</h3><p>Mounting and connection components for drive assemblies.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="hydraulics"><div class="product-icon">⟳</div><h3>Orbital Hydraulic Motors</h3><p>Hydraulic motor options for rotary drive applications.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="other"><div class="product-icon">◎</div><h3>Seals</h3><p>Sealing components for hydraulic and industrial equipment.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="valves"><div class="product-icon">⇄</div><h3>Flow Control Valves</h3><p>Components for managing fluid flow in hydraulic systems.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="valves"><div class="product-icon">➜</div><h3>Non-Return Valve</h3><p>Check valves designed to help prevent reverse flow.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="hydraulics"><div class="product-icon">↕</div><h3>Special Type Cylinders</h3><p>Special-purpose cylinder requirements; share your drawing or specifications.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="power"><div class="product-icon">⚙</div><h3>Gear Box</h3><p>Gearbox options for industrial drive applications.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="valves"><div class="product-icon">ϟ</div><h3>Solenoid Valves</h3><p>Electrically actuated valves for fluid control applications.</p><a href="#contact">Request details →</a></article>
+          <article class="product" data-category="power"><div class="product-icon">▰</div><h3>DC Power Pack</h3><p>DC hydraulic power pack options for suitable applications.</p><a href="#contact">Request details →</a></article>
+        </div>
+        <p class="note">Product descriptions are general. Please confirm specifications, compatibility, availability and pricing with us before ordering.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">About our business</div>
+          <h2>Your Partner for Hydraulic & Industrial Components</h2>
+          <p>We help businesses source hydraulic and industrial components for their equipment and operational needs. Tell us what you need, and share the part number, model, dimensions or technical drawing where available.</p>
+          <div class="benefits">
+            <div class="benefit"><span>✓</span>Wide product range</div>
+            <div class="benefit"><span>✓</span>Enquiry-based sourcing</div>
+            <div class="benefit"><span>✓</span>Specification-focused</div>
+            <div class="benefit"><span>✓</span>Business-to-business support</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="big">⚙</div>
+          <h3>Need a specific component?</h3>
+          <p>Send us the product name, required quantity and any available part number or drawing. We'll discuss the requirement and quotation with you.</p>
+          <a class="button" href="#contact">Send an Enquiry →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Get in touch</div>
+          <h2>Request a Quote</h2>
+          <p class="contact-copy">Contact us for product availability, specifications, pricing and supply enquiries. Replace the placeholder details with your real business contact information before publishing.</p>
+          <a class="button" id="email-button" href="mailto:YOUR_EMAIL@example.com?subject=Hydraulic%20Product%20Enquiry">Email Us ↗</a>
+        </div>
+        <div class="contact-box">
+          <div class="contact-row"><strong>Company</strong><span>YOUR COMPANY</span></div>
+          <div class="contact-row"><strong>Phone / WhatsApp</strong><span>ADD YOUR PHONE NUMBER</span></div>
+          <div class="contact-row"><strong>Email</strong><span>YOUR_EMAIL@example.com</span></div>
+          <div class="contact-row"><strong>Location</strong><span>ADD YOUR CITY / BUSINESS ADDRESS</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> YOUR COMPANY. All rights reserved.</span>
+      <span>Hydraulic & Industrial Solutions</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const filters = document.querySelectorAll('.filter');
+    const products = document.querySelectorAll('.product');
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        filters.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        products.forEach(product => {
+          product.hidden = !(filter === 'all' || product.dataset.category === filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
